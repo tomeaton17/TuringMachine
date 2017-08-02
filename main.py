@@ -18,16 +18,24 @@ def print_arrow_tape(name, index):
     print(tape_string)
     print(spaces + '^')
 
-print_arrow_tape(tape, index)
-time.sleep(1)
 
-while state != 'qf':
-    if(state == 'q0'):
-        if(tape[index] == 1):
-            index += 1
-            print_arrow_tape(tape,index)
-        elif(tape[index] == 'B'):
+
+def oneStateInversion(index, state):
+    print_arrow_tape(tape, index)
+    time.sleep(1)
+    while state != 'qf':
+        if(tape[index] == 'B'):
             state = 'qf'
-        time.sleep(1)
+        elif(tape[index] == 0):
+            tape[index] = 1
+            index += 1
+            print_arrow_tape(tape, index)
+            time.sleep(1)
+        else:
+            tape[index] = 0
+            index += 1
+            print_arrow_tape(tape, index)
+            time.sleep(1)
 
 
+oneStateInversion(0, 0)
