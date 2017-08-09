@@ -4,10 +4,11 @@ tape = [1, 1, 1, 'B']
 state = 'q0'
 index = 0
 
+
 def print_arrow_tape(name, index):
     spaces = ''
     tape_string = ''
-    for i in range(0,index):
+    for i in range(0, index):
         spaces += ' '
 
     for i in name:
@@ -17,7 +18,6 @@ def print_arrow_tape(name, index):
     os.system('cls')
     print(tape_string)
     print(spaces + '^')
-
 
 
 def oneStateInversion(index, state):
